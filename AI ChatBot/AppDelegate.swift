@@ -1,11 +1,5 @@
-//
-//  AppDelegate.swift
-//  AI ChatBot
-//
-//  Created by Астимир Марышев on 6/19/26.
-//
-
 import UIKit
+import ApphudSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        PurchaseManager.shared.configure()
         return true
     }
 
