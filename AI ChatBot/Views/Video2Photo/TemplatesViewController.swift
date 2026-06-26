@@ -84,28 +84,30 @@ final class TemplatesViewController: UIViewController, TemplatesViewProtocol {
     }
     
     func showPhotoPermissionAlert() {
+        
         let alert = UIAlertController(
             title: "Allow access to photos?",
             message: "To upload an image, the app needs access to your photo gallery.",
             preferredStyle: .alert
         )
         
+        
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: "Inter-SemiBold", size: 17) ?? UIFont.boldSystemFont(ofSize: 17),
-            .foregroundColor: UIColor.white
+            .foregroundColor: UIColor.black
         ]
         let attributedTitle = NSAttributedString(string: "Allow access to photos?", attributes: titleAttributes)
         alert.setValue(attributedTitle, forKey: "attributedTitle")
         
         let messageAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: "Inter-Regular", size: 13) ?? UIFont.systemFont(ofSize: 13),
-            .foregroundColor: UIColor(white: 0.7, alpha: 1.0)
+            .foregroundColor: UIColor.black.withAlphaComponent(0.6)
         ]
         let attributedMessage = NSAttributedString(string: "To upload an image, the app needs access to your photo gallery.", attributes: messageAttributes)
         alert.setValue(attributedMessage, forKey: "attributedMessage")
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in 
+            return
         }
         cancelAction.setValue(UIColor(red: 0.38, green: 0.64, blue: 0.97, alpha: 1.0), forKey: "titleTextColor")
         alert.addAction(cancelAction)
