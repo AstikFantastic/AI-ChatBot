@@ -768,8 +768,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apphud/ApphudSDK";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.3.0;
+				kind = exactVersion;
+				version = 4.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
