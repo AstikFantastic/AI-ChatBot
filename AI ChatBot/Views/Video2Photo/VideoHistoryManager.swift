@@ -89,11 +89,6 @@ final class VideoHistoryManager: VideoHistoryManagerProtocol {
         return UIImage(data: data)
     }
     
-    private func deleteThumbnail(for id: String) {
-        let url = getThumbnailURL(for: id)
-        try? fileManager.removeItem(at: url)
-    }
-    
     private func getThumbnailURL(for id: String) -> URL {
         let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         return documentsPath.appendingPathComponent("thumbnail_\(id).jpg")

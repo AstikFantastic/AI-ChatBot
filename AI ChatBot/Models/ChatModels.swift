@@ -1,6 +1,6 @@
 import Foundation
 
-struct ChatMessage: Codable {
+nonisolated struct ChatMessage: Codable {
     let message: String
     let personaId: String?
     let additionalPrompt: String?
@@ -12,7 +12,7 @@ struct ChatMessage: Codable {
     }
 }
 
-struct ChatResponse: Codable {
+nonisolated struct ChatResponse: Codable {
     let chatId: String
     let assistantMessage: String
     
@@ -30,7 +30,7 @@ struct MessageBubble {
 
 // MARK: - Chat History Message
 
-struct ChatHistoryMessage: Codable {
+nonisolated struct ChatHistoryMessage: Codable {
     let role: String
     let content: String
     let messageSource: String

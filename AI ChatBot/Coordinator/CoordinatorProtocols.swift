@@ -11,7 +11,7 @@ protocol TemplatesCoordinatorProtocol: AnyObject {
 // MARK: - Template Details Coordinator Protocol
 
 protocol TemplateDetailsCoordinatorProtocol: AnyObject {
-    func navigateToProcessing(taskId: String, template: VideoTemplate)
+    func navigateToProcessing(imageData: Data, template: VideoTemplate)
 }
 
 // MARK: - Video Processing Coordinator Protocol

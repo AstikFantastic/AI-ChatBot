@@ -109,6 +109,11 @@ final class TemplateDetailsViewController: UIViewController, TemplateDetailsView
         
         view.addSubview(createButton)
         createButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        activityIndicator.color = .white
+        activityIndicator.hidesWhenStopped = true
+        createButton.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             
@@ -141,6 +146,9 @@ final class TemplateDetailsViewController: UIViewController, TemplateDetailsView
             createButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             createButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             createButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: createButton.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: createButton.centerYAnchor)
         ])
     }
     
@@ -187,7 +195,7 @@ final class TemplateDetailsViewController: UIViewController, TemplateDetailsView
         presenter.didTapAddPhoto()
     }
     
-    @objc private func removePhotoButtonTapped() {
+    @objc private func removePhotoButtonTapped() {   
         presenter.didTapRemovePhoto()
     }
     
@@ -374,8 +382,8 @@ final class TemplateDetailsViewController: UIViewController, TemplateDetailsView
     
     func showLoading() {
         createButton.isEnabled = false
-        activityIndicator.startAnimating()
         createButton.setTitle("", for: .normal)
+        activityIndicator.startAnimating()
     }
     
     func hideLoading() {

@@ -18,12 +18,6 @@ final class ChatHistoryViewController: UIViewController {
         return tv
     }()
     
-    private let refreshControl: UIRefreshControl = {
-        let rc = UIRefreshControl()
-        rc.tintColor = .white
-        return rc
-    }()
-    
     private let emptyStateView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -107,9 +101,6 @@ final class ChatHistoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ChatHistoryCell.self, forCellReuseIdentifier: ChatHistoryCell.identifier)
-        
-        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-        tableView.refreshControl = refreshControl
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: customBar.bottomAnchor),
@@ -265,7 +256,6 @@ extension ChatHistoryViewController: ChatHistoryViewProtocol {
     
     func hideLoading() {
         loadingIndicator.stopAnimating()
-        refreshControl.endRefreshing()
     }
     
     func showEmptyState() {

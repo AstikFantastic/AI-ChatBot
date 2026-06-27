@@ -69,8 +69,8 @@ final class Coordinator: AppCoordinatorProtocol, TemplatesCoordinatorProtocol, T
     
     // MARK: - TemplateDetailsCoordinatorProtocol
     
-    func navigateToProcessing(taskId: String, template: VideoTemplate) {
-        let presenter = VideoProcessingPresenter(taskId: taskId,
+    func navigateToProcessing(imageData: Data, template: VideoTemplate) {
+        let presenter = VideoProcessingPresenter(imageData: imageData,
                                                  template: template,
                                                  coordinator: self
         )
